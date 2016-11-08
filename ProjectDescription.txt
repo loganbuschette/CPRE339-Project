@@ -1,0 +1,10 @@
+Matthew Szpak/Logan Buschette
+CprE 339
+Deliverable 1 - Project Description
+
+Our group consists of Matthew Szpak and Logan Buschette, and we aim to create a software product based mainly on the Movie Rental idea from homework 2. 
+However, we plan to expand this to include other forms of media including books and CD’s.  We also plan to extend this even further to allow not just rentals, 
+but also selling items which will result in different amounts of frequent renter points.  We will create an effective GUI to make all of the functions easy to use.  
+Our software will allow multiple customers to run the application and perform transactions simultaneously.  We will use good software design techniques, be 
+cautious to avoid different code smells, apply defensive programming techniques, and try to create our component-connector diagram, module diagram, use 
+case diagram and class diagram as accurately as possible to allow our product to be in sync with our proposed design.
