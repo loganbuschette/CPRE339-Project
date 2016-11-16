@@ -74,7 +74,7 @@ public class RegisterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Firebase.setAndroidContext(this);
-        ref = new Firebase("https://accu-pop.firebaseio.com/");
+        ref = new Firebase("https://project-57f67.firebaseio.com/");
         setContentView(R.layout.activity_register);
         // Set up the register form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

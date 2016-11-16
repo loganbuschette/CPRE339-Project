@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         super.onCreate(savedInstanceState);
         Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_login);
-        ref = new Firebase("https://accu-pop.firebaseio.com/");
+        ref = new Firebase("https://project-57f67.firebaseio.com/");
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
