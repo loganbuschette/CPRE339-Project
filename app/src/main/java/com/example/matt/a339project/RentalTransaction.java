@@ -5,21 +5,21 @@ package com.example.matt.a339project;
  */
 
 public class RentalTransaction extends Transaction {
-    private Merchandise _merchandise;
-    private int   _daysRented;
+    private Merchandise merchandise;
+    private int   daysRented;
     private double rentalCost;
     private int frequentCustomerPoints;
 
     public RentalTransaction(Merchandise merchandise, int daysRented) {
-        _merchandise  = merchandise;
-        _daysRented = daysRented;
+        this.merchandise  = merchandise;
+        this.daysRented = daysRented;
         rentalCost = merchandise.getRentalCost(daysRented);
         frequentCustomerPoints = merchandise.getFrequentCustomerPoints(daysRented);
     }
 
     @Override
     public Merchandise getMerchandise() {
-        return _merchandise;
+        return merchandise;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class RentalTransaction extends Transaction {
     }
 
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
 

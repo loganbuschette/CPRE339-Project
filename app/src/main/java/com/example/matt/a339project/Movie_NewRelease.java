@@ -4,7 +4,7 @@ package com.example.matt.a339project;
  * Created by Matt on 11/16/2016.
  */
 
-public class Movie_NewRelease extends Merchandise{
+public class Movie_NewRelease extends Movie{
     public Movie_NewRelease(String title) {
         super(title);
     }

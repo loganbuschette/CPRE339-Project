@@ -5,13 +5,13 @@ package com.example.matt.a339project;
  */
 
 public class Customer {
-    private String _name;
-    private int _age;
+    private String name;
+    private int age;
     private Transactions transactions;
 
     public Customer (String name, int age) {
-        _name = name;
-        _age = age;
+        this.name = name;
+        this.age = age;
         this.transactions = new Transactions(this);
     }
 
@@ -24,15 +24,15 @@ public class Customer {
     }
 
     public String getName() {
-        return _name;
+        return name;
     }
 
     public int getAge() {
-        return _age;
+        return age;
     }
 
     public String printStatement() {
         Statement statement = transactions.getStatement();
-        return statement.getStatementAsText();
+        return statement.getStatement();
     }
 }

@@ -6,39 +6,28 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Movie extends Activity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie);
-
-        //set up book button to direct to book activity screen
-        ImageButton bookButton = (ImageButton) findViewById(R.id.childrenMovie);
-        bookButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), childrenMovieActivity.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
-
-        //set up movies button to direct to movies activity screen
-        ImageButton movieButton = (ImageButton) findViewById(R.id.newReleaseMovie);
-        movieButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-                Intent myIntent = new Intent(view.getContext(), newReleaseMovieActivity.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
-
-        //set up CD button to direct to CD activity screen
-        ImageButton cdButton = (ImageButton) findViewById(R.id.regularMovie);
-        cdButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-                Intent myIntent = new Intent(view.getContext(), regularMovieActivity.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
+public class Movie extends Merchandise {
+    public Movie(String itemName) {
+        super(itemName);
     }
 
+    @Override
+    public double getSaleCost() {
+        return 0;
+    }
+
+    @Override
+    public double getRentalCost(int daysRented) {
+        return 0;
+    }
+
+    @Override
+    public int getFrequentCustomerPoints(int daysRented) {
+        return 0;
+    }
+
+    @Override
+    public String getItemName() {
+        return super.getItemName();
+    }
 }

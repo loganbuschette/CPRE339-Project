@@ -6,17 +6,17 @@ package com.example.matt.a339project;
 
 public class SaleTransaction extends Transaction {
 
-    private Merchandise _merchandise;
+    private Merchandise merchandise;
     private double saleCost;
 
     public SaleTransaction(Merchandise merchandise) {
-        _merchandise  = merchandise;
+        this.merchandise  = merchandise;
         saleCost = merchandise.getSaleCost();
     }
 
     @Override
     public Merchandise getMerchandise() {
-        return _merchandise;
+        return merchandise;
     }
 
     @Override

@@ -12,7 +12,7 @@ public class Statement {
         this.transactions = transactions;
     }
 
-    public String getStatementAsText() {
+    public String getStatement() {
         String result = "Transaction Record for " + transactions.getCustomer().getName() + "\n";
 
         // go through each rental

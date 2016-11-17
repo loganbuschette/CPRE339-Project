@@ -4,7 +4,7 @@ package com.example.matt.a339project;
  * Created by Matt on 11/16/2016.
  */
 
-public class Book_Classic extends Merchandise{
+public class Book_Classic extends Book{
 
     public Book_Classic(String itemName) {
         super(itemName);

@@ -6,10 +6,10 @@ package com.example.matt.a339project;
 
 public abstract class Merchandise {
 
-    private String _itemName;
+    private String itemName;
 
     public Merchandise(String itemName) {
-        _itemName = itemName;
+        this.itemName = itemName;
     }
 
     public abstract double getSaleCost();
@@ -19,6 +19,6 @@ public abstract class Merchandise {
     public abstract int getFrequentCustomerPoints(int daysRented);
 
     public String getItemName() {
-        return _itemName;
+        return itemName;
     }
 }
