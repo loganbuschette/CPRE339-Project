@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_book"
+    android:id="@+id/content_cd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="16dp"
@@ -25,7 +25,8 @@
             android:paddingTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cdList" />
+            android:id="@+id/cdList"
+            android:entries="@array/cdArray"/>
 
     </LinearLayout>
 

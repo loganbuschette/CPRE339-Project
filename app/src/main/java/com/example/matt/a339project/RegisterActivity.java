@@ -74,7 +74,7 @@ public class RegisterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Firebase.setAndroidContext(this);
-        ref = new Firebase("https://project-57f67.firebaseio.com/");
+        ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
         setContentView(R.layout.activity_register);
         // Set up the register form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -197,6 +197,12 @@ public class RegisterActivity extends Activity {
             showProgress(true);
             mAuthTask = new UserRegisterTask(email, password);
             mAuthTask.execute((Void) null);
+
+            TextView name = (TextView) findViewById(R.id.userName);
+            Controller.factory().name = name.getText().toString();
+
+            TextView age = (TextView) findViewById(R.id.userAge);
+            Controller.factory().age = Integer.parseInt(age.getText().toString());
         }
     }
 

@@ -1,0 +1,66 @@
+package com.example.matt.a339project;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Matt on 11/16/2016.
+ */
+
+public class Transactions {
+
+    public ArrayList<EndSaleStrategy> strategies = new ArrayList<EndSaleStrategy>();
+
+    private ArrayList<Transaction> transactionCollection = new ArrayList<>();
+    private Customer customer;
+    private double totalAmount = 0;
+    private int totalFrequentCustomerPoints = 0;
+    protected double bonusDiscount = 0;
+    protected int bonusFrequentCustomerPoints = 0;
+
+    public Transactions(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void add(Transaction transaction) {
+        transactionCollection.add(transaction);
+
+        // calculate amount and frequent renter points
+        totalAmount += transaction.getTransactionAmount();
+        totalFrequentCustomerPoints += transaction.getFrequentCustomerPoints();
+    }
+
+    public ArrayList<Transaction> getCollection() {
+        return transactionCollection;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public double getFinalBalance() {
+        return totalAmount - bonusDiscount;
+    }
+
+    public int getTotalFrequentCustomerPoints() {
+        return totalFrequentCustomerPoints;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Statement getStatement() {
+        return new Statement(this);
+    }
+
+    public void applyEndSaleStrategies() {
+        strategies.add(new OperationBulkDiscount());
+        strategies.add(new OperationYoungNewRelease());
+        strategies.add(new OperationMultipleCategories());
+
+        // call all strategies
+        for (EndSaleStrategy s : strategies) {
+            s.applyAction(this);
+        }
+    }
+}

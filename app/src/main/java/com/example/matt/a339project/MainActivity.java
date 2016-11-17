@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Firebase.setAndroidContext(this);
-        ref = new Firebase("https://project-57f67.firebaseio.com/");
+        ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
@@ -55,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         cdButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
                 Intent myIntent = new Intent(view.getContext(), CD.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.viewStatement);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), StatementActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });

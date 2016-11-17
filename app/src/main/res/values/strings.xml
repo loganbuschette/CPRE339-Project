@@ -25,4 +25,57 @@
     <string name="action_register">Register</string>
     <string name="error_email_already_taken">This email address is already associated with an account</string>
     <string name="title_activity_cd">CD</string>
+
+    <string-array name="bookArray">
+        <item>The Great Gatsby</item>
+        <item>The Grapes of Wrath</item>
+        <item>Nineteen Eighty Four</item>
+        <item>Ulysses</item>
+        <item>Lolita</item>
+        <item>Catch 22</item>
+        <item>The Catcher in the Rye</item>
+        <item>Beloved</item>
+    </string-array>
+
+    <string-array name="cdArray">
+        <item>21 by Adelle</item>
+        <item>The Sound of Music</item>
+        <item>Thriller by Michael Jackson</item>
+        <item>Fearless by Taylor Swift</item>
+        <item>Born in the USA by Bruce Springsteen</item>
+        <item>Ropin The Wind by Garth Brooks</item>
+        <item>Jagged Little Pill by Alanis Morissette</item>
+    </string-array>
+
+    <string-array name="childrenMovieArray">
+        <item>Finding Nemo</item>
+        <item>Mary Poppins</item>
+        <item>The Lion King</item>
+        <item>Little Mermaid</item>
+        <item>The Princess Bride</item>
+        <item>The Iron Giant</item>
+        <item>Willy Wonka</item>
+    </string-array>
+
+    <string-array name="newReleaseMovieArray">
+        <item>Jason Bourne</item>
+        <item>Suicide Squad</item>
+        <item>Trolls</item>
+        <item>Moana</item>
+        <item>The Girl on the Train</item>
+        <item>Startrek</item>
+        <item>Hacksaw Ridge</item>
+    </string-array>
+
+    <string-array name="regularMovieArray">
+        <item>Casablanca</item>
+        <item>Gone With The Wind</item>
+        <item>The Shawshank Redemption</item>
+        <item>The Godfather</item>
+        <item>Citizen Kane</item>
+        <item>Vertigo</item>
+        <item>Star Wars</item>
+        <item>Psycho</item>
+    </string-array>
+
 </resources>
