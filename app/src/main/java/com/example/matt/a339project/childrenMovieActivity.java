@@ -25,7 +25,7 @@ public class childrenMovieActivity extends AppCompatActivity {
 
         String[] movies = getResources().getStringArray(R.array.childrenMovieArray);
 
-        final ListView movieList = (ListView) findViewById(R.id.bookList);
+        final ListView movieList = (ListView) findViewById(R.id.childMovieList);
         movieList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movies));
 
         movieList.setClickable(true);
