@@ -23,4 +23,9 @@ public class Movie_NewRelease extends Movie {
         frequentCustomerPoints = 2;
         return 15;
     }
+
+    @Override
+    public int getFrequentCustomerPointCost(){
+        return 50;
+    }
 }

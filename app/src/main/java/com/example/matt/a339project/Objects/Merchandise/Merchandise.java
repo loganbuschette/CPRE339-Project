@@ -8,6 +8,8 @@ public interface Merchandise {
 
     double getSaleCost();
 
+    int getFrequentCustomerPointCost();
+
     double getRentalCost(int daysRented);
 
     int getFrequentCustomerPoints();

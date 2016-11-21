@@ -29,6 +29,11 @@ public abstract class Movie implements Merchandise {
     }
 
     @Override
+    public int getFrequentCustomerPointCost(){
+        return 30;
+    }
+
+    @Override
     public int getFrequentCustomerPoints() {
         return frequentCustomerPoints;
     }

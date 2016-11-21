@@ -25,6 +25,11 @@ public abstract class Book implements Merchandise {
     }
 
     @Override
+    public int getFrequentCustomerPointCost(){
+        return 20;
+    }
+
+    @Override
     public int getFrequentCustomerPoints() {
         return frequentCustomerPoints;
     }

@@ -8,8 +8,8 @@ import com.example.matt.a339project.Objects.Merchandise.Book.Book;
 
 public class Book_Classic extends Book {
 
-    public Book_Classic(String itemName) {
-        super(itemName);
+    public Book_Classic(String title) {
+        super(title);
     }
 
     @Override

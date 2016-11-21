@@ -1,9 +1,9 @@
 package com.example.matt.a339project.Objects.Customer;
 
-import com.example.matt.a339project.Objects.Statement.Statement;
+import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 import com.example.matt.a339project.Objects.Transaction.Transaction;
-//import com.example.matt.a339project.Objects.Merchandise.Transactions;
-import com.example.matt.a339project.Transactions;
+
+import java.util.ArrayList;
 
 /**
  * Created by Matt on 11/16/2016.
@@ -12,20 +12,22 @@ import com.example.matt.a339project.Transactions;
 public class Customer {
     private String name;
     private int age;
-    private Transactions transactions;
+    private ArrayList<Merchandise> rentals = new ArrayList<Merchandise>();
+    private ArrayList<Merchandise> purchases = new ArrayList<Merchandise>();
+    private int frequentCustomerPoints;
 
-    public Customer (String name, int age) {
+    public Customer (String name, int age, int frequentCustomerPoints) {
         this.name = name;
         this.age = age;
-        this.transactions = new Transactions(this);
+        this.frequentCustomerPoints = frequentCustomerPoints;
     }
 
     public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
+
     }
 
-    public void finalizeTransactions() {
-        transactions.applyEndSaleStrategies();
+    public void finalizeTransactions(){
+
     }
 
     public String getName() {
@@ -34,6 +36,10 @@ public class Customer {
 
     public int getAge() {
         return age;
+    }
+
+    public int getFrequentCustomerPoints(){
+        return frequentCustomerPoints;
     }
 
 //    public String printStatement() {

@@ -54,7 +54,8 @@ public class Transactions {
     }
 
     public Statement getStatement() {
-        return new Statement(this);
+        return null;
+        //new Statement(this);
     }
 
     public void applyEndSaleStrategies() {
