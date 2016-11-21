@@ -1,10 +1,9 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,6 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.matt.a339project.Objects.Merchandise.Book.Book;
+import com.example.matt.a339project.Objects.Merchandise.CD.CD;
+import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
+import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity {

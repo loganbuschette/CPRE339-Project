@@ -1,4 +1,4 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
 public class regularMovieActivity extends AppCompatActivity {

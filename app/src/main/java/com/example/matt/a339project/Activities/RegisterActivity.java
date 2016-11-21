@@ -1,4 +1,4 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -29,6 +29,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.matt.a339project.Controller;
+import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 

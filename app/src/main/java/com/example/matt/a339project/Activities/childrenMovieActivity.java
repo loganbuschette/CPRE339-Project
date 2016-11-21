@@ -1,43 +1,40 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
-/**
- * Created by Logan on 11/16/2016.
- */
-
-public class BookActivity extends Activity {
+public class childrenMovieActivity extends AppCompatActivity {
 
     Firebase ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book);
+        setContentView(R.layout.activity_children_movie);
 
         Firebase.setAndroidContext(this);
         ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
 
-        String[] books = getResources().getStringArray(R.array.bookArray);
+        String[] movies = getResources().getStringArray(R.array.childrenMovieArray);
 
-        final ListView bookList = (ListView) findViewById(R.id.bookList);
-        bookList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, books));
+        final ListView movieList = (ListView) findViewById(R.id.childMovieList);
+        movieList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movies));
 
-        bookList.setClickable(true);
-        bookList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        movieList.setClickable(true);
+        movieList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
                 //if they click on it, add it to their statement
                 //TODO
-                AlertDialog acceptDialogBox = new AlertDialog.Builder(BookActivity.this)
+                AlertDialog acceptDialogBox = new AlertDialog.Builder(childrenMovieActivity.this)
                         //set message, title, and icon
                         .setTitle("Rent or Buy")
                         .setMessage("Do you want to rent or buy this item?")
@@ -61,6 +58,4 @@ public class BookActivity extends Activity {
             }
         });
     }
-
 }
-

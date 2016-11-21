@@ -1,10 +1,12 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.matt.a339project.R;
 
 /**
  * Created by Logan on 11/16/2016.

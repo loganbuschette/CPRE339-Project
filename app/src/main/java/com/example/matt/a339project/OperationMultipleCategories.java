@@ -1,5 +1,8 @@
 package com.example.matt.a339project;
 
+import com.example.matt.a339project.Objects.Transaction.Transaction;
+import com.example.matt.a339project.Objects.Merchandise.Transactions;
+
 import java.util.HashSet;
 
 /**

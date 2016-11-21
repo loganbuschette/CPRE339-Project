@@ -1,10 +1,12 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Objects.Merchandise.Book;
+
+import com.example.matt.a339project.Objects.Merchandise.Book.Book;
 
 /**
  * Created by Matt on 11/16/2016.
  */
 
-public class Book_Classic extends Book{
+public class Book_Classic extends Book {
 
     public Book_Classic(String itemName) {
         super(itemName);
@@ -16,16 +18,13 @@ public class Book_Classic extends Book{
         if (daysRented > 3) {
             thisAmount += (daysRented - 3) * 1;
         }
+        frequentCustomerPoints = 1;
         return thisAmount;
     }
 
     @Override
-    public int getFrequentCustomerPoints(int daysRented) {
-        return 1;
-    }
-
-    @Override
     public double getSaleCost() {
+        frequentCustomerPoints = 2;
         return 7;
     }
 }

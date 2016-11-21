@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="Movie Store"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
@@ -23,24 +23,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Book"
+            android:name=".Objects.Merchandise.Book.Book"
             android:label="@string/title_activity_book" />
         <activity
-            android:name=".Movie"
+            android:name=".Objects.Merchandise.Movie.Movie"
             android:label="@string/title_activity_movie" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activities.RegisterActivity"
             android:label="@string/title_activity_register" />
         <activity
-            android:name=".CD"
+            android:name=".Objects.Merchandise.CD.CD"
             android:label="@string/title_activity_cd" />
-        <activity android:name=".StatementActivity" />
-        <activity android:name=".childrenMovieActivity" />
-        <activity android:name=".newReleaseMovieActivity" />
-        <activity android:name=".regularMovieActivity"></activity>
+        <activity android:name=".Activities.StatementActivity" />
+        <activity android:name=".Activities.childrenMovieActivity" />
+        <activity android:name=".Activities.newReleaseMovieActivity" />
+        <activity android:name=".Activities.regularMovieActivity"></activity>
     </application>
 
 </manifest>

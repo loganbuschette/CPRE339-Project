@@ -1,4 +1,6 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Objects.Merchandise.Movie;
+
+import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
 
 /**
  * Created by Matt on 11/16/2016.
@@ -16,16 +18,13 @@ public class Movie_Children extends Movie {
         if (daysRented > 3) {
             thisAmount += (daysRented - 3) * 1.5;
         }
+        frequentCustomerPoints = 1;
         return thisAmount;
     }
 
     @Override
-    public int getFrequentCustomerPoints(int daysRented) {
-        return 1;
-    }
-
-    @Override
     public double getSaleCost() {
-        return 11;
+        frequentCustomerPoints = 2;
+        return 7;
     }
 }

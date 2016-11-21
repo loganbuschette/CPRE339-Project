@@ -1,4 +1,9 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Objects.Customer;
+
+import com.example.matt.a339project.Objects.Statement.Statement;
+import com.example.matt.a339project.Objects.Transaction.Transaction;
+//import com.example.matt.a339project.Objects.Merchandise.Transactions;
+import com.example.matt.a339project.Transactions;
 
 /**
  * Created by Matt on 11/16/2016.
@@ -31,8 +36,8 @@ public class Customer {
         return age;
     }
 
-    public String printStatement() {
-        Statement statement = transactions.getStatement();
-        return statement.getStatement();
-    }
+//    public String printStatement() {
+//        Statement statement = transactions.getStatement();
+//        return statement.getStatement();
+//    }
 }

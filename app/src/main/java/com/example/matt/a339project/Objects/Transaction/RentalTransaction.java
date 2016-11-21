@@ -1,4 +1,6 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Objects.Transaction;
+
+import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 
 /**
  * Created by Matt on 11/16/2016.
@@ -14,7 +16,7 @@ public class RentalTransaction extends Transaction {
         this.merchandise  = merchandise;
         this.daysRented = daysRented;
         rentalCost = merchandise.getRentalCost(daysRented);
-        frequentCustomerPoints = merchandise.getFrequentCustomerPoints(daysRented);
+       // frequentCustomerPoints = merchandise.getFrequentCustomerPoints(daysRented);
     }
 
     @Override

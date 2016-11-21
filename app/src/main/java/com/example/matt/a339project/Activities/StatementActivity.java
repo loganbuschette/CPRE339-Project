@@ -1,8 +1,11 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.matt.a339project.Controller;
+import com.example.matt.a339project.R;
 
 public class StatementActivity extends AppCompatActivity {
 
