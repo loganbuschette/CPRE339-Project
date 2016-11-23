@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.Objects.Merchandise.Book.Book;
 import com.example.matt.a339project.Objects.Merchandise.CD.CD;
 import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+
+        final Customer customer = new Customer("Logan", 22, 0);
         if(pref.getString("user", null) == null) {
             Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivityForResult(myIntent, 0);
@@ -39,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton bookButton = (ImageButton) findViewById(R.id.books);
         bookButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), Book.class);
+                Intent myIntent = new Intent(view.getContext(), BookActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -48,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton movieButton = (ImageButton) findViewById(R.id.movies);
         movieButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-                Intent myIntent = new Intent(view.getContext(), Movie.class);
+                Intent myIntent = new Intent(view.getContext(), MovieActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -57,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton cdButton = (ImageButton) findViewById(R.id.cds);
         cdButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-                Intent myIntent = new Intent(view.getContext(), CD.class);
+                Intent myIntent = new Intent(view.getContext(), CDActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), StatementActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });

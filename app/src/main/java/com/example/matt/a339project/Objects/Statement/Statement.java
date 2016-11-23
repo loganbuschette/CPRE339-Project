@@ -1,7 +1,6 @@
 package com.example.matt.a339project.Objects.Statement;
 
 import com.example.matt.a339project.Objects.Transaction.Transaction;
-//import com.example.matt.a339project.Objects.Merchandise.Transactions;
 import com.example.matt.a339project.Transactions;
 
 /**
@@ -10,26 +9,13 @@ import com.example.matt.a339project.Transactions;
 
 public class Statement {
 
-//    private Transactions transactions;
+    private Transactions transactions;
 
-//    public Statement(Transactions transactions) {
-//        this.transactions = transactions;
-//    }
+    public Statement(Transactions transactions) {
+        this.transactions = transactions;
+    }
 
-//    public String getStatement() {
-//        String result = "Transaction Record for " + transactions.getCustomer().getName() + "\n";
-//
-//        // go through each rental
-//        for (Transaction transaction : transactions.getCollection()) {
-//            result += "\t[" + (transaction.isRental() && transaction.isRental() ? "RENTED" : "BOUGHT") + "]  " + transaction.getMerchandise().getItemName() + ": $" + String.format("%.2f", transaction.getTransactionAmount()) + "\n";
-//        }
-//
-//        // add footer lines
-//        result += "Amount owed before discounts is $" + String.format("%.2f", transactions.getTotalAmount()) + "\n";
-//        result += "Amount of discounts is $" + String.format("%.2f", transactions.bonusDiscount) + "\n";
-//        result += "Final balance is $" + String.format("%.2f", transactions.getFinalBalance()) + "\n";
-//        result += "You earned " + transactions.getTotalFrequentCustomerPoints() + " frequent renter points + " + transactions.bonusFrequentCustomerPoints + " bonus points.";
-//
-//        return result;
-//    }
+    public String getStatement() {
+        return null;
+    }
 }

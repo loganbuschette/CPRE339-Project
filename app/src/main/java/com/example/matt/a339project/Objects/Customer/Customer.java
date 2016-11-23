@@ -3,13 +3,15 @@ package com.example.matt.a339project.Objects.Customer;
 import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 import com.example.matt.a339project.Objects.Transaction.Transaction;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Matt on 11/16/2016.
  */
 
-public class Customer {
+@SuppressWarnings("serial")
+public class Customer implements Serializable {
     private String name;
     private int age;
     private ArrayList<Merchandise> rentals = new ArrayList<Merchandise>();
@@ -20,14 +22,6 @@ public class Customer {
         this.name = name;
         this.age = age;
         this.frequentCustomerPoints = frequentCustomerPoints;
-    }
-
-    public void addTransaction(Transaction transaction) {
-
-    }
-
-    public void finalizeTransactions(){
-
     }
 
     public String getName() {
@@ -42,8 +36,4 @@ public class Customer {
         return frequentCustomerPoints;
     }
 
-//    public String printStatement() {
-//        Statement statement = transactions.getStatement();
-//        return statement.getStatement();
-//    }
 }

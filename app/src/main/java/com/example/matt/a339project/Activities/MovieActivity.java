@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.R;
 
 /**
@@ -19,11 +20,15 @@ public class MovieActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
+        Intent i = getIntent();
+        final Customer customer = (Customer)i.getSerializableExtra("customer");
+
         //set up book button to direct to book activity screen
         ImageButton bookButton = (ImageButton) findViewById(R.id.childrenMovie);
         bookButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), childrenMovieActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -33,6 +38,7 @@ public class MovieActivity extends Activity {
         movieButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
                 Intent myIntent = new Intent(view.getContext(), newReleaseMovieActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -42,6 +48,7 @@ public class MovieActivity extends Activity {
         cdButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
                 Intent myIntent = new Intent(view.getContext(), regularMovieActivity.class);
+                myIntent.putExtra("customer", customer);
                 startActivityForResult(myIntent, 0);
             }
         });

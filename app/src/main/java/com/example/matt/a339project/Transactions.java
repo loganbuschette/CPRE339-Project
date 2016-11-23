@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 public class Transactions {
 
-    public ArrayList<EndSaleStrategy> strategies = new ArrayList<EndSaleStrategy>();
-
     private ArrayList<Transaction> transactionCollection = new ArrayList<>();
     private Customer customer;
     private double totalAmount = 0;
@@ -58,14 +56,4 @@ public class Transactions {
         //new Statement(this);
     }
 
-    public void applyEndSaleStrategies() {
-        strategies.add(new OperationBulkDiscount());
-        strategies.add(new OperationYoungNewRelease());
-        strategies.add(new OperationMultipleCategories());
-
-        // call all strategies
-        for (EndSaleStrategy s : strategies) {
-            s.applyAction(this);
-        }
-    }
 }

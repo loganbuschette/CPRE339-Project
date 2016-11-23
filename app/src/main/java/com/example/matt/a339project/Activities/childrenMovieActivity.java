@@ -2,6 +2,7 @@ package com.example.matt.a339project.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.matt.a339project.Objects.Customer.Customer;
+import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
+import com.example.matt.a339project.Objects.Merchandise.Movie.Movie_Children;
 import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
@@ -21,13 +25,16 @@ public class childrenMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_children_movie);
 
+        Intent i = getIntent();
+        Customer customer = (Customer)i.getSerializableExtra("customer");
+
         Firebase.setAndroidContext(this);
         ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
 
-        String[] movies = getResources().getStringArray(R.array.childrenMovieArray);
+        String[] movieTitles = getResources().getStringArray(R.array.childrenMovieArray);
 
         final ListView movieList = (ListView) findViewById(R.id.childMovieList);
-        movieList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movies));
+        movieList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movieTitles));
 
         movieList.setClickable(true);
         movieList.setOnItemClickListener(new AdapterView.OnItemClickListener(){

@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Objects.Merchandise.Book.Book"
+            android:name=".Activities.BookActivity"
             android:label="@string/title_activity_book" />
         <activity
-            android:name=".Objects.Merchandise.Movie.Movie"
+            android:name=".Activities.MovieActivity"
             android:label="@string/title_activity_movie" />
         <activity
             android:name=".Activities.LoginActivity"
@@ -35,7 +35,7 @@
             android:name=".Activities.RegisterActivity"
             android:label="@string/title_activity_register" />
         <activity
-            android:name=".Objects.Merchandise.CD.CD"
+            android:name=".Activities.CDActivity"
             android:label="@string/title_activity_cd" />
         <activity android:name=".Activities.StatementActivity" />
         <activity android:name=".Activities.childrenMovieActivity" />
