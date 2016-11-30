@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.R;
@@ -38,11 +39,57 @@ public class BookActivity extends Activity {
         final ListView bookList = (ListView) findViewById(R.id.bookList);
         bookList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, books));
 
+        final AlertDialog.Builder rentalBox = new AlertDialog.Builder(BookActivity.this);
+        rentalBox.setTitle("Rental Period");
+        rentalBox.setMessage("How long would you like to rent this item?");
+        final NumberPicker np = new NumberPicker(BookActivity.this);
+        String[] nums = new String[10];
+        for(int j = 0; j<nums.length; j++)
+        {
+            nums[j] = Integer.toString(j);
+        }
+        np.setMinValue(0);
+        np.setMaxValue(nums.length-1);
+        np.setWrapSelectorWheel(false);
+        np.setDisplayedValues(nums);
+        np.setValue(5);
+        rentalBox.setView(np);
+        rentalBox.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //TODO
+                int value = np.getValue();
+                dialog.dismiss();
+            }
+        });
+        rentalBox.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+
+        final AlertDialog.Builder buyBox = new AlertDialog.Builder(BookActivity.this);
+        buyBox.setTitle("Confirm Your Purchase");
+        buyBox.setMessage("Are you sure you want to buy this item?");
+        buyBox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //TODO
+                dialog.dismiss();
+            }
+        });
+        buyBox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+
         bookList.setClickable(true);
         bookList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
                 //if they click on it, add it to their statement
-                //TODO
                 AlertDialog acceptDialogBox = new AlertDialog.Builder(BookActivity.this)
                         //set message, title, and icon
                         .setTitle("Rent or Buy")
@@ -51,15 +98,15 @@ public class BookActivity extends Activity {
                         .setPositiveButton("Rent", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-
                                 dialog.dismiss();
+                                rentalBox.show();
                             }
                         })
                         .setNegativeButton("Buy", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-
                                 dialog.dismiss();
+                                buyBox.show();
                             }
                         })
                         .create();

@@ -30,6 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.matt.a339project.Controller;
+import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -65,6 +66,8 @@ public class RegisterActivity extends Activity {
      * References the Firebase app with our data and authentication.
      */
     Firebase ref;
+
+    Customer customer = new Customer();
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -200,11 +203,24 @@ public class RegisterActivity extends Activity {
             mAuthTask = new UserRegisterTask(email, password);
             mAuthTask.execute((Void) null);
 
-            TextView name = (TextView) findViewById(R.id.userName);
+            TextView name = (TextView) findViewById(R.id.usersFirstName);
             Controller.factory().name = name.getText().toString();
+            customer.setName(name.getText().toString());
 
             TextView age = (TextView) findViewById(R.id.userAge);
-            Controller.factory().age = Integer.parseInt(age.getText().toString());
+            Controller.factory().age = age.getText().toString();
+            customer.setAge(age.getText().toString());
+
+            TextView tempEmail = (TextView) findViewById(R.id.email);
+            Controller.factory().email = tempEmail.getText().toString();
+            customer.setEmail(tempEmail.getText().toString());
+
+            Firebase usersRef = ref.child("Users");
+            Firebase newUsersRef = usersRef.push();
+
+            newUsersRef.child("Name").setValue(customer.getName());
+            newUsersRef.child("Age").setValue(customer.getAge());
+            newUsersRef.child("Email").setValue(customer.getEmail());
         }
     }
 

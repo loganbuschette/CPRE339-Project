@@ -15,9 +15,9 @@ public class StatementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_statement);
 
         TextView name = (TextView) findViewById(R.id.customerName);
-        name.setText(Controller.factory().name);
+        name.setText(Controller.factory().name.toString());
 
         TextView age = (TextView) findViewById(R.id.customerAge);
-        age.setText(String.valueOf(Controller.factory().age));
+        age.setText(String.valueOf(Controller.factory().age.toString()));
     }
 }

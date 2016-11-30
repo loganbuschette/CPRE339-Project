@@ -10,8 +10,9 @@ import java.lang.reflect.Method;
 public class Controller {
     private static Controller controller;
     public String name;
-    public String userId;
-    public int age;
+    public String email;
+    public String age;
+    public String userID;
 
     public static Controller factory() {
         if (controller == null) controller = new Controller();

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
@@ -36,6 +37,53 @@ public class childrenMovieActivity extends AppCompatActivity {
         final ListView movieList = (ListView) findViewById(R.id.childMovieList);
         movieList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movieTitles));
 
+        final AlertDialog.Builder rentalBox = new AlertDialog.Builder(childrenMovieActivity.this);
+        rentalBox.setTitle("Rental Period");
+        rentalBox.setMessage("How long would you like to rent this item?");
+        final NumberPicker np = new NumberPicker(childrenMovieActivity.this);
+        String[] nums = new String[10];
+        for(int j = 0; j<nums.length; j++)
+        {
+            nums[j] = Integer.toString(j);
+        }
+        np.setMinValue(0);
+        np.setMaxValue(nums.length-1);
+        np.setWrapSelectorWheel(false);
+        np.setDisplayedValues(nums);
+        np.setValue(5);
+        rentalBox.setView(np);
+        rentalBox.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //TODO
+                int value = np.getValue();
+                dialog.dismiss();
+            }
+        });
+        rentalBox.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+
+        final AlertDialog.Builder buyBox = new AlertDialog.Builder(childrenMovieActivity.this);
+        buyBox.setTitle("Confirm Your Purchase");
+        buyBox.setMessage("Are you sure you want to buy this item?");
+        buyBox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //TODO
+                dialog.dismiss();
+            }
+        });
+        buyBox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+
         movieList.setClickable(true);
         movieList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
@@ -49,15 +97,15 @@ public class childrenMovieActivity extends AppCompatActivity {
                         .setPositiveButton("Rent", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-
                                 dialog.dismiss();
+                                rentalBox.show();
                             }
                         })
                         .setNegativeButton("Buy", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-
                                 dialog.dismiss();
+                                buyBox.show();
                             }
                         })
                         .create();

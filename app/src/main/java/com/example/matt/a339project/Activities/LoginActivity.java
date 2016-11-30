@@ -31,10 +31,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.matt.a339project.Controller;
+import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.R;
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +71,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
      * References the Firebase app with our data and authentication.
      */
     Firebase ref;
-    //Firebase ref = new Firebase("https://accu-pop.firebaseio.com/");
+
+    Customer customer = new Customer();
 
 
     // UI references.
@@ -103,6 +107,29 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Controller.factory().email = mEmailView.getText().toString();
+                Firebase userRef = ref.child("Users");
+                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot users : dataSnapshot.getChildren())
+                        {
+                            if(users.child("Email").toString().equals(Controller.factory().email))
+                            {
+//                                customer.setName(users.child("Name").toString());
+//                                customer.setAge(users.child("Age").toString());
+//                                customer.setEmail(users.child("Email").toString());
+                                Controller.factory().name = users.child("Name").toString();
+                                Controller.factory().age = users.child("Age").toString();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
                 attemptLogin();
             }
         });
@@ -214,6 +241,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+
         }
     }
 
@@ -337,7 +365,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 @Override
                 public void onAuthenticated(AuthData authData) {
                     user = authData.getUid();
-                    Controller.factory().userId = user;
+                    Controller.factory().userID = user;
                     System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
                     wait = false;
                 }

@@ -13,24 +13,40 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class Customer implements Serializable {
     private String name;
-    private int age;
+    private String age;
+    private String email;
     private ArrayList<Merchandise> rentals = new ArrayList<Merchandise>();
     private ArrayList<Merchandise> purchases = new ArrayList<Merchandise>();
     private int frequentCustomerPoints;
 
-    public Customer (String name, int age, int frequentCustomerPoints) {
+    public Customer (String name, String age, String email, int frequentCustomerPoints) {
         this.name = name;
         this.age = age;
+        this.email = email;
         this.frequentCustomerPoints = frequentCustomerPoints;
     }
+
+    public Customer() {}
+
+    public void setName(String name) {this.name = name;}
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAge() {
         return age;
     }
+
+    public void setAge(String age) {this.age = age; }
 
     public int getFrequentCustomerPoints(){
         return frequentCustomerPoints;

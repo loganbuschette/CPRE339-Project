@@ -11,16 +11,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.matt.a339project.Controller;
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.Objects.Merchandise.Book.Book;
 import com.example.matt.a339project.Objects.Merchandise.CD.CD;
 import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
 import com.example.matt.a339project.R;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
     Firebase ref;
+    Customer customer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +33,13 @@ public class MainActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
 
-        final Customer customer = new Customer("Logan", 22, 0);
-        if(pref.getString("user", null) == null) {
-            Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivityForResult(myIntent, 0);
-            finish();
-        }
+//        if (pref.getString("user", null) == null) {
+//            Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
+//            startActivityForResult(myIntent, 0);
+//            finish();
+//        }
 
         //set up book button to direct to book activity screen
         ImageButton bookButton = (ImageButton) findViewById(R.id.books);
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }
         });
+
 
     }
 

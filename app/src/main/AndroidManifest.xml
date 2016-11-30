@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Activities.FirstActivity"
             android:label="Movie Store"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
@@ -22,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.MainActivity"
+        />
         <activity
             android:name=".Activities.BookActivity"
             android:label="@string/title_activity_book" />
@@ -40,7 +43,8 @@
         <activity android:name=".Activities.StatementActivity" />
         <activity android:name=".Activities.childrenMovieActivity" />
         <activity android:name=".Activities.newReleaseMovieActivity" />
-        <activity android:name=".Activities.regularMovieActivity"></activity>
+        <activity android:name=".Activities.regularMovieActivity" />
+
     </application>
 
 </manifest>

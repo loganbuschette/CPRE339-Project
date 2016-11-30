@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#FFFFFF"
-    tools:context="com.example.matt.a339project.Activities.StatementActivity">
+    tools:context="com.example.matt.a339project.Activities.FirstActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -15,6 +14,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_statement" />
+    <include layout="@layout/content_first" />
+
 
 </android.support.design.widget.CoordinatorLayout>
+
