@@ -210,6 +210,69 @@
 
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Frequent Renter Points: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textFRP"
+                android:layout_gravity="center"
+                android:fontFamily="casual"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="FRPs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/customerFRP"
+                android:textStyle="normal|bold"
+                android:fontFamily="casual"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Total: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textTotal"
+                android:layout_gravity="center"
+                android:fontFamily="casual"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="$0.00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/customerTotal"
+                android:textStyle="normal|bold"
+                android:fontFamily="casual"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </TableRow>
+
     </TableLayout>
+
+    <Button
+        android:text="Clear List"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clearBtn"
+        android:layout_weight="2"
+        android:textAlignment="center"
+        android:background="@color/colorPrimary"
+        android:layout_above="@+id/checkoutBtn"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
