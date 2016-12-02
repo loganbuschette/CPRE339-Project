@@ -12,8 +12,10 @@ public class Movie_NewRelease extends Movie {
         super(title);
     }
 
+    public Movie_NewRelease(String title, int daysRented){ super(title, daysRented);}
+
     @Override
-    public double getRentalCost(int daysRented) {
+    public double getRentalCost() {
         frequentCustomerPoints = 1;
         return (double) 3 * daysRented;
     }

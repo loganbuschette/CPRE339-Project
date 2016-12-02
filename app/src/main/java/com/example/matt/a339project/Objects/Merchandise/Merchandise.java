@@ -10,9 +10,13 @@ public interface Merchandise {
 
     int getFrequentCustomerPointCost();
 
-    double getRentalCost(int daysRented);
+    double getRentalCost();
 
     int getFrequentCustomerPoints();
 
     String getItemTitle();
+
+    int getDaysRented();
+
+    void setDaysRented(int daysRented);
 }

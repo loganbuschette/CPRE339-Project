@@ -9,10 +9,27 @@ public class CD implements Merchandise {
 
     private String CDTitle;
     protected int frequentCustomerPoints;
+    protected int daysRented;
 
     public CD(String title){
         this.CDTitle = title;
         this.frequentCustomerPoints = 0;
+    }
+
+    public CD(String title, int daysRented){
+        this.CDTitle = title;
+        this.frequentCustomerPoints = 0;
+        this.daysRented = daysRented;
+    }
+
+    @Override
+    public int getDaysRented() {
+        return daysRented;
+    }
+
+    @Override
+    public void setDaysRented(int daysRented) {
+        this.daysRented = daysRented;
     }
 
     @Override
@@ -22,7 +39,7 @@ public class CD implements Merchandise {
     }
 
     @Override
-    public double getRentalCost(int daysRented) {
+    public double getRentalCost() {
         frequentCustomerPoints = 1;
         return daysRented/2;
     }

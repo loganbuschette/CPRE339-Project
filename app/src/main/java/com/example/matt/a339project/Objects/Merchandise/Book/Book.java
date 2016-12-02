@@ -6,10 +6,28 @@ public abstract class Book implements Merchandise {
 
     private String bookTitle;
     protected int frequentCustomerPoints;
+    protected int daysRented;
 
     public Book(String title){
         this.bookTitle = title;
         this.frequentCustomerPoints = 0;
+        daysRented = 0;
+    }
+
+    public Book(String title, int daysRented){
+        this.bookTitle = title;
+        this.frequentCustomerPoints = 0;
+        this.daysRented = daysRented;
+    }
+
+    @Override
+    public int getDaysRented() {
+        return daysRented;
+    }
+
+    @Override
+    public void setDaysRented(int daysRented) {
+        this.daysRented = daysRented;
     }
 
     @Override
@@ -19,9 +37,9 @@ public abstract class Book implements Merchandise {
     }
 
     @Override
-    public double getRentalCost(int daysRented) {
+    public double getRentalCost() {
         frequentCustomerPoints = 1;
-        return 1 * daysRented;
+        return daysRented;
     }
 
     @Override

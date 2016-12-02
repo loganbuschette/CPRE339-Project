@@ -12,4 +12,6 @@ public class Movie_Regular extends Movie {
         super(title);
     }
 
+    public Movie_Regular(String title, int daysRented){ super(title, daysRented);}
+
 }

@@ -15,7 +15,7 @@ public class RentalTransaction extends Transaction {
     public RentalTransaction(Merchandise merchandise, int daysRented) {
         this.merchandise  = merchandise;
         this.daysRented = daysRented;
-        rentalCost = merchandise.getRentalCost(daysRented);
+//        rentalCost = merchandise.getRentalCost(daysRented);
        // frequentCustomerPoints = merchandise.getFrequentCustomerPoints(daysRented);
     }
 

@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 //            finish();
 //        }
 
+        Intent i = getIntent();
+        customer = (Customer)i.getSerializableExtra("customer");
+
         //set up book button to direct to book activity screen
         ImageButton bookButton = (ImageButton) findViewById(R.id.books);
         bookButton.setOnClickListener(new View.OnClickListener() {

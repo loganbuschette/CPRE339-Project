@@ -12,6 +12,8 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 
 import com.example.matt.a339project.Objects.Customer.Customer;
+import com.example.matt.a339project.Objects.Merchandise.Book.Book;
+import com.example.matt.a339project.Objects.Merchandise.Book.Book_Classic;
 import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
@@ -22,6 +24,7 @@ import com.firebase.client.Firebase;
 public class BookActivity extends Activity {
 
     Firebase ref;
+    Customer customer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class BookActivity extends Activity {
         setContentView(R.layout.activity_book);
 
         Intent i = getIntent();
-        Customer customer = (Customer)i.getSerializableExtra("customer");
+        customer = (Customer)i.getSerializableExtra("customer");
 
         Firebase.setAndroidContext(this);
         ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
@@ -38,36 +41,6 @@ public class BookActivity extends Activity {
 
         final ListView bookList = (ListView) findViewById(R.id.bookList);
         bookList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, books));
-
-        final AlertDialog.Builder rentalBox = new AlertDialog.Builder(BookActivity.this);
-        rentalBox.setTitle("Rental Period");
-        rentalBox.setMessage("How long would you like to rent this item?");
-        final NumberPicker np = new NumberPicker(BookActivity.this);
-        String[] nums = new String[10];
-        for(int j = 0; j<nums.length; j++)
-        {
-            nums[j] = Integer.toString(j);
-        }
-        np.setMinValue(0);
-        np.setMaxValue(nums.length-1);
-        np.setWrapSelectorWheel(false);
-        np.setDisplayedValues(nums);
-        np.setValue(5);
-        rentalBox.setView(np);
-        rentalBox.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //TODO
-                int value = np.getValue();
-                dialog.dismiss();
-            }
-        });
-        rentalBox.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-            }
-        });
 
         final AlertDialog.Builder buyBox = new AlertDialog.Builder(BookActivity.this);
         buyBox.setTitle("Confirm Your Purchase");
@@ -90,6 +63,7 @@ public class BookActivity extends Activity {
         bookList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
                 //if they click on it, add it to their statement
+                final String book = (String) arg0.getAdapter().getItem(position);
                 AlertDialog acceptDialogBox = new AlertDialog.Builder(BookActivity.this)
                         //set message, title, and icon
                         .setTitle("Rent or Buy")
@@ -99,7 +73,7 @@ public class BookActivity extends Activity {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 dialog.dismiss();
-                                rentalBox.show();
+                                RequestRentalDays(book);
                             }
                         })
                         .setNegativeButton("Buy", new DialogInterface.OnClickListener() {
@@ -113,6 +87,39 @@ public class BookActivity extends Activity {
                 acceptDialogBox.show();
             }
         });
+    }
+
+    private void RequestRentalDays(String book){
+        final String title = book;
+        final AlertDialog.Builder rentalBox = new AlertDialog.Builder(BookActivity.this);
+        rentalBox.setTitle("Rental Period");
+        rentalBox.setMessage("How many days would you like to rent this item?");
+        final NumberPicker np = new NumberPicker(BookActivity.this);
+        String[] nums = new String[10];
+        for(int j = 0; j<nums.length; j++)
+        {
+            nums[j] = Integer.toString(j+1);
+        }
+        np.setMinValue(1);
+        np.setMaxValue(nums.length);
+        np.setWrapSelectorWheel(false);
+        np.setDisplayedValues(nums);
+        np.setValue(5);
+        rentalBox.setView(np);
+        rentalBox.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                customer.addRental(new Book_Classic(title, np.getValue()));
+                dialog.dismiss();
+            }
+        });
+        rentalBox.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        rentalBox.show();
     }
 
 }

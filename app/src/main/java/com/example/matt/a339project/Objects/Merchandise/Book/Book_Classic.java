@@ -12,8 +12,10 @@ public class Book_Classic extends Book {
         super(title);
     }
 
+    public Book_Classic(String title, int daysRented){ super(title, daysRented);}
+
     @Override
-    public double getRentalCost(int daysRented) {
+    public double getRentalCost() {
         double thisAmount = 1;
         if (daysRented > 3) {
             thisAmount += (daysRented - 3) * 1;

@@ -52,4 +52,12 @@ public class Customer implements Serializable {
         return frequentCustomerPoints;
     }
 
+    public void addRental(Merchandise rental){
+        rentals.add(rental);
+    }
+
+    public void addPurchase(Merchandise purchase){
+        purchases.add(purchase);
+    }
+
 }
