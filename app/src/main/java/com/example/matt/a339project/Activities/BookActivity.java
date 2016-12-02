@@ -122,5 +122,12 @@ public class BookActivity extends Activity {
         rentalBox.show();
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra("customer",customer);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }
 

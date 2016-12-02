@@ -2,10 +2,12 @@ package com.example.matt.a339project.Objects.Merchandise.CD;
 
 import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 
+import java.io.Serializable;
+
 /**
  * @author Logan
  */
-public class CD implements Merchandise {
+public class CD implements Merchandise, Serializable {
 
     private String CDTitle;
     protected int frequentCustomerPoints;
@@ -57,5 +59,10 @@ public class CD implements Merchandise {
     @Override
     public String getItemTitle() {
         return CDTitle;
+    }
+
+    @Override
+    public void appendMerchTypeToTitle(){
+        CDTitle = CDTitle + " (CD)";
     }
 }

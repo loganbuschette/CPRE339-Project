@@ -2,7 +2,9 @@ package com.example.matt.a339project.Objects.Merchandise.Book;
 
 import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 
-public abstract class Book implements Merchandise {
+import java.io.Serializable;
+
+public abstract class Book implements Merchandise, Serializable {
 
     private String bookTitle;
     protected int frequentCustomerPoints;
@@ -55,5 +57,10 @@ public abstract class Book implements Merchandise {
     @Override
     public String getItemTitle() {
         return bookTitle;
+    }
+
+    @Override
+    public void appendMerchTypeToTitle(){
+        bookTitle = bookTitle + " (Book)";
     }
 }

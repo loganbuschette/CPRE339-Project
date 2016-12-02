@@ -77,22 +77,13 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="Movie Rentals"
+                android:text="Rentals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/movieRentalText"
+                android:id="@+id/RentalsLabel"
                 android:fontFamily="casual"
                 android:textAlignment="center"
                 android:layout_weight="1" />
-
-            <TextView
-                android:text="Movie Purchases"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/MoviePurchases"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:textAlignment="center" />
         </TableRow>
 
         <TableRow
@@ -100,21 +91,19 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="Movie Rental Summary"
+                android:text="Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_bg_1"
                 android:layout_weight="1"
-                android:id="@+id/movieRentalSummary"
+                android:id="@+id/rentalTitleLabel"
                 android:textAlignment="center" />
 
             <TextView
-                android:text="Movie Purchase Summary"
+                android:text="Price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_bg_1"
                 android:layout_weight="1"
-                android:id="@+id/moviePurchaseSummary"
+                android:id="@+id/rentalCostLabel"
                 android:textAlignment="center" />
         </TableRow>
 
@@ -122,147 +111,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:text="CD Rentals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/CDRentals"
-                android:fontFamily="casual"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="CD Purchases"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/CDPurchases"
-                android:fontFamily="casual"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:text="CD Rental Summary"
+            <ListView android:paddingTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_bg_1"
-                android:layout_weight="1"
-                android:id="@+id/CDRentalSummary"
-                android:textAlignment="center" />
+                android:id="@+id/rentalTitlesList"/>
 
-            <TextView
-                android:text="CD Purchase Summary"
+            <ListView android:paddingTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_bg_1"
-                android:layout_weight="1"
-                android:id="@+id/CDPurchaseSummary"
-                android:textAlignment="center" />
+                android:id="@+id/rentalCostsList"/>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
 
-            <TextView
-                android:text="Book Rentals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/bookRentals"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="Book Purchases"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/bookPurchases"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:textAlignment="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <TextView
-                android:text="Book Rental Summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_bg_1"
-                android:layout_weight="1"
-                android:id="@+id/bookRentalSummary"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="Book Purchase Summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_bg_1"
-                android:layout_weight="1"
-                android:id="@+id/bookPurchaseSummary"
-                android:textAlignment="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="Frequent Renter Points: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textFRP"
-                android:layout_gravity="center"
-                android:fontFamily="casual"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="FRPs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/customerFRP"
-                android:textStyle="normal|bold"
-                android:fontFamily="casual"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="Total: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textTotal"
-                android:layout_gravity="center"
-                android:fontFamily="casual"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="$0.00"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/customerTotal"
-                android:textStyle="normal|bold"
-                android:fontFamily="casual"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-        </TableRow>
 
     </TableLayout>
 

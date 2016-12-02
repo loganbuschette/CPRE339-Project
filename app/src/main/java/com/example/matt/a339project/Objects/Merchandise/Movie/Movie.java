@@ -2,7 +2,9 @@ package com.example.matt.a339project.Objects.Merchandise.Movie;
 
 import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 
-public abstract class Movie implements Merchandise {
+import java.io.Serializable;
+
+public abstract class Movie implements Merchandise, Serializable {
 
     private String movieTitle;
     protected int frequentCustomerPoints;
@@ -60,4 +62,8 @@ public abstract class Movie implements Merchandise {
         return movieTitle;
     }
 
+    @Override
+    public void appendMerchTypeToTitle(){
+        movieTitle = movieTitle + " (Movie)";
+    }
 }

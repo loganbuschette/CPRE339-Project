@@ -15,13 +15,15 @@ import com.example.matt.a339project.R;
 
 public class MovieActivity extends Activity {
 
+    Customer customer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
         Intent i = getIntent();
-        final Customer customer = (Customer)i.getSerializableExtra("customer");
+        customer = (Customer)i.getSerializableExtra("customer");
 
         //set up book button to direct to book activity screen
         ImageButton bookButton = (ImageButton) findViewById(R.id.childrenMovie);
@@ -52,6 +54,14 @@ public class MovieActivity extends Activity {
                 startActivityForResult(myIntent, 0);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra("customer",customer);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 }

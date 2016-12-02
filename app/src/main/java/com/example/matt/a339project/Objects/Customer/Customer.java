@@ -60,4 +60,12 @@ public class Customer implements Serializable {
         purchases.add(purchase);
     }
 
+    public ArrayList<Merchandise> getRentals(){
+        return rentals;
+    }
+
+    public ArrayList<Merchandise> getPurchases(){
+        return purchases;
+    }
+
 }

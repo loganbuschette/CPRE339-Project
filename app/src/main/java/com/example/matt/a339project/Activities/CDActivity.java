@@ -23,6 +23,7 @@ import com.firebase.client.Firebase;
 public class CDActivity extends Activity {
 
     Firebase ref;
+    Customer customer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class CDActivity extends Activity {
         setContentView(R.layout.activity_cd);
 
         Intent i = getIntent();
-        Customer customer = (Customer)i.getSerializableExtra("customer");
+        customer = (Customer)i.getSerializableExtra("customer");
 
         Firebase.setAndroidContext(this);
         ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
@@ -116,4 +117,11 @@ public class CDActivity extends Activity {
         });
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra("customer",customer);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
 }

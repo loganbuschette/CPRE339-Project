@@ -16,7 +16,7 @@ import com.example.matt.a339project.R;
 public class StatementActivity extends AppCompatActivity {
 
     Customer customer;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +30,11 @@ public class StatementActivity extends AppCompatActivity {
 
         //TODO set the all of the summaries text
 
+
+
         Intent i = getIntent();
         customer = (Customer)i.getSerializableExtra("customer");
+
 
         Button clearButton = (Button) findViewById(R.id.clearBtn);
         clearButton.setOnClickListener(new View.OnClickListener() {
