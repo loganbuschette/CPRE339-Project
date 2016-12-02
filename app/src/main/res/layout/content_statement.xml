@@ -10,6 +10,171 @@
     tools:showIn="@layout/activity_statement"
     android:theme="@style/Theme.AppCompat.Light">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:id="@+id/customerName"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:paddingBottom="10px"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="true" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Age:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/textAge"
+                android:textAlignment="center"
+                android:layout_below="@+id/customerName"
+                android:layout_toStartOf="@+id/customerAge"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="casual" />
+
+            <TextView
+                android:text="Age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/customerAge"
+                android:textAlignment="center"
+                android:layout_below="@+id/customerName"
+                android:layout_alignBaseline="@+id/textAge"
+                android:layout_alignBottom="@+id/textAge"
+                android:layout_toEndOf="@+id/textAge"
+                android:textStyle="normal|bold"
+                android:fontFamily="casual"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Purchases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/purchaseTitleLabel"
+                android:textAlignment="center"
+                android:layout_below="@+id/PurchaseLabel"
+                android:layout_toStartOf="@+id/customerAge"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="casual"/>
+
+            <TextView
+                android:text="Rentals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/rentalTitleLabel"
+                android:textAlignment="center"
+                android:layout_alignBaseline="@+id/purchaseTitleLabel"
+                android:layout_alignBottom="@+id/purchaseTitleLabel"
+                android:layout_toEndOf="@+id/purchaseTitleLabel"
+                android:fontFamily="casual"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="256dp"
+            android:layout_width="match_parent"
+            android:id="@+id/rentalsLinear">
+
+            <ListView
+                android:layout_height="match_parent"
+                android:id="@+id/rentalTitleList"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                />
+
+            <ListView
+                android:layout_height="match_parent"
+                android:id="@+id/rentalPriceList"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Total:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/totalLabel"
+                android:textAlignment="center"
+                android:layout_below="@+id/rentalsLinear"
+                android:layout_toStartOf="@+id/totalAmount"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="casual"/>
+
+            <TextView
+                android:text="$0.00"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/totalAmount"
+                android:textAlignment="center"
+                android:layout_alignBaseline="@+id/totalLabel"
+                android:layout_alignBottom="@+id/totalLabel"
+                android:layout_toEndOf="@+id/totalLabel"
+                android:fontFamily="casual"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Frequent Renter Points:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/fqrLabel"
+                android:textAlignment="center"
+                android:layout_below="@+id/totalLabel"
+                android:layout_toStartOf="@+id/fqrAmount"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="casual"/>
+
+            <TextView
+                android:text="00"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/fqrAmount"
+                android:textAlignment="center"
+                android:layout_alignBaseline="@+id/fqrLabel"
+                android:layout_alignBottom="@+id/fqrLabel"
+                android:layout_toEndOf="@+id/fqrLabel"
+                android:fontFamily="casual"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
     <Button
         android:text="Check Out"
         android:layout_width="match_parent"
@@ -21,111 +186,6 @@
         android:background="@color/colorAccent"
         android:layout_alignParentBottom="true"/>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="Name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="22dp"
-                android:id="@+id/customerName"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:textAlignment="center"
-                android:paddingBottom="10px"
-                android:layout_marginBottom="10dp"
-                android:textAllCaps="true" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="Age:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textAge"
-                android:layout_gravity="center"
-                android:fontFamily="casual"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="Age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/customerAge"
-                android:textStyle="normal|bold"
-                android:fontFamily="casual"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:textAlignment="center" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="Rentals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/RentalsLabel"
-                android:fontFamily="casual"
-                android:textAlignment="center"
-                android:layout_weight="1" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:text="Title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/rentalTitleLabel"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="Price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/rentalCostLabel"
-                android:textAlignment="center" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ListView android:paddingTop="40dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rentalTitlesList"/>
-
-            <ListView android:paddingTop="40dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rentalCostsList"/>
-        </TableRow>
-
-
-
-    </TableLayout>
-
     <Button
         android:text="Clear List"
         android:layout_width="match_parent"
@@ -136,5 +196,6 @@
         android:background="@color/colorPrimary"
         android:layout_above="@+id/checkoutBtn"
         android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
