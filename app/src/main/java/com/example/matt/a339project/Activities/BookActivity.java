@@ -42,23 +42,6 @@ public class BookActivity extends Activity {
         final ListView bookList = (ListView) findViewById(R.id.bookList);
         bookList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, books));
 
-        final AlertDialog.Builder buyBox = new AlertDialog.Builder(BookActivity.this);
-        buyBox.setTitle("Confirm Your Purchase");
-        buyBox.setMessage("Are you sure you want to buy this item?");
-        buyBox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //TODO
-                dialog.dismiss();
-            }
-        });
-        buyBox.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-            }
-        });
-
         bookList.setClickable(true);
         bookList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id){
@@ -80,7 +63,7 @@ public class BookActivity extends Activity {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 dialog.dismiss();
-                                buyBox.show();
+                                Purchase(book);
                             }
                         })
                         .create();
@@ -120,6 +103,27 @@ public class BookActivity extends Activity {
             }
         });
         rentalBox.show();
+    }
+
+    private void Purchase(String book){
+        final String title = book;
+        final AlertDialog.Builder buyBox = new AlertDialog.Builder(BookActivity.this);
+        buyBox.setTitle("Confirm Your Purchase");
+        buyBox.setMessage("Are you sure you want to buy this item?");
+        buyBox.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                customer.addPurchase(new Book_Classic(title));
+                dialog.dismiss();
+            }
+        });
+        buyBox.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        buyBox.show();
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.example.matt.a339project.Objects.Transaction.Transaction;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Matt on 11/16/2016.
@@ -15,8 +16,8 @@ public class Customer implements Serializable {
     private String name;
     private String age;
     private String email;
-    private ArrayList<Merchandise> rentals = new ArrayList<Merchandise>();
-    private ArrayList<Merchandise> purchases = new ArrayList<Merchandise>();
+    private List<Merchandise> rentals = new ArrayList<Merchandise>();
+    private List<Merchandise> purchases = new ArrayList<Merchandise>();
     private int frequentCustomerPoints;
 
     public Customer (String name, String age, String email, int frequentCustomerPoints) {
@@ -60,12 +61,23 @@ public class Customer implements Serializable {
         purchases.add(purchase);
     }
 
-    public ArrayList<Merchandise> getRentals(){
+    public List<Merchandise> getRentals(){
         return rentals;
     }
 
-    public ArrayList<Merchandise> getPurchases(){
+    public List<Merchandise> getPurchases(){
         return purchases;
     }
 
+    public void addMerchTypeToRentals(){
+        for(Merchandise merch : rentals){
+            merch.appendMerchTypeToTitle();
+        }
+    }
+
+    public void addMerchTypeToPurchases(){
+        for(Merchandise merch : purchases){
+            merch.appendMerchTypeToTitle();
+        }
+    }
 }

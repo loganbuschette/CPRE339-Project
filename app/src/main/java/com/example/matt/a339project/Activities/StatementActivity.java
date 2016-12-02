@@ -6,34 +6,72 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.matt.a339project.Controller;
+import com.example.matt.a339project.Adapters.PurchaseListAdapter;
+import com.example.matt.a339project.Adapters.RentalListAdapter;
 import com.example.matt.a339project.Objects.Customer.Customer;
+import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 import com.example.matt.a339project.R;
+
+import java.text.NumberFormat;
+import java.util.List;
 
 public class StatementActivity extends AppCompatActivity {
 
     Customer customer;
+    private ListView rentalsLV;
+    private ListView purchaseLV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statement);
 
-        TextView name = (TextView) findViewById(R.id.customerName);
-        name.setText(Controller.factory().name.toString());
-
-        TextView age = (TextView) findViewById(R.id.customerAge);
-        age.setText(String.valueOf(Controller.factory().age.toString()));
-
-        //TODO set the all of the summaries text
-
-
-
         Intent i = getIntent();
         customer = (Customer)i.getSerializableExtra("customer");
+
+        TextView name = (TextView) findViewById(R.id.customerName);
+        name.setText(customer.getName());
+
+        TextView age = (TextView) findViewById(R.id.customerAge);
+        age.setText(customer.getAge());
+
+        customer.addMerchTypeToRentals();
+        customer.addMerchTypeToPurchases();
+
+
+        rentalsLV = (ListView) findViewById(R.id.rentalList);
+        RentalListAdapter rentalAdapter = new RentalListAdapter(this, R.layout.statement_item, customer.getRentals());
+        rentalsLV.setAdapter(rentalAdapter);
+
+        purchaseLV = (ListView) findViewById(R.id.purchaseList);
+        PurchaseListAdapter purchaseAdapter = new PurchaseListAdapter(this, R.layout.statement_item, customer.getPurchases());
+        purchaseLV.setAdapter(purchaseAdapter);
+
+        double totalPrice = 0;
+        int totalFRP = 0;
+        for(Merchandise item : customer.getRentals()){
+            totalPrice += item.getRentalCost();
+            totalFRP += item.getFrequentCustomerPoints();
+        }
+        for(Merchandise item : customer.getPurchases()){
+            totalPrice += item.getSaleCost();
+            totalFRP += item.getFrequentCustomerPoints();
+        }
+
+        TextView totalCost = (TextView) findViewById(R.id.totalAmount);
+        NumberFormat format = NumberFormat.getCurrencyInstance();
+        totalCost.setText(format.format(totalPrice));
+
+        TextView FRP = (TextView) findViewById(R.id.fqrAmount);
+        FRP.setText(""+totalFRP);
+
+        //TODO push list to DB on checkout
 
 
         Button clearButton = (Button) findViewById(R.id.clearBtn);

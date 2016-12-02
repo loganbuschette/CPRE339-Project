@@ -99,14 +99,14 @@
 
             <ListView
                 android:layout_height="match_parent"
-                android:id="@+id/rentalTitleList"
+                android:id="@+id/purchaseList"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 />
 
             <ListView
                 android:layout_height="match_parent"
-                android:id="@+id/rentalPriceList"
+                android:id="@+id/rentalList"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"/>
 

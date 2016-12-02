@@ -56,6 +56,15 @@ public class MovieActivity extends Activity {
         });
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if(resultCode == RESULT_OK){
+                customer = (Customer) data.getSerializableExtra("customer");
+            }
+        }
+    }
+
     @Override
     public void onBackPressed(){
         Intent intent = new Intent();
