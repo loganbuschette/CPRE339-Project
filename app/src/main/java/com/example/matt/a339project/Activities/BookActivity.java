@@ -17,10 +17,6 @@ import com.example.matt.a339project.Objects.Merchandise.Book.Book_Classic;
 import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
-/**
- * Created by Logan on 11/16/2016.
- */
-
 public class BookActivity extends Activity {
 
     Firebase ref;
@@ -48,7 +44,6 @@ public class BookActivity extends Activity {
                 //if they click on it, add it to their statement
                 final String book = (String) arg0.getAdapter().getItem(position);
                 AlertDialog acceptDialogBox = new AlertDialog.Builder(BookActivity.this)
-                        //set message, title, and icon
                         .setTitle("Rent or Buy")
                         .setMessage("Do you want to rent or buy this item?")
                         .setIcon(android.R.drawable.ic_dialog_info)

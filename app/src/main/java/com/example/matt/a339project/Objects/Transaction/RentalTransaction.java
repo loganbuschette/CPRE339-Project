@@ -2,10 +2,6 @@ package com.example.matt.a339project.Objects.Transaction;
 
 import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 
-/**
- * Created by Matt on 11/16/2016.
- */
-
 public class RentalTransaction extends Transaction {
     private Merchandise merchandise;
     private int   daysRented;
@@ -15,8 +11,6 @@ public class RentalTransaction extends Transaction {
     public RentalTransaction(Merchandise merchandise, int daysRented) {
         this.merchandise  = merchandise;
         this.daysRented = daysRented;
-//        rentalCost = merchandise.getRentalCost(daysRented);
-       // frequentCustomerPoints = merchandise.getFrequentCustomerPoints(daysRented);
     }
 
     @Override

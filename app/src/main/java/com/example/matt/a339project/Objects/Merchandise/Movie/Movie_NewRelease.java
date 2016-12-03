@@ -1,11 +1,5 @@
 package com.example.matt.a339project.Objects.Merchandise.Movie;
 
-import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
-
-/**
- * Created by Matt on 11/16/2016.
- */
-
 public class Movie_NewRelease extends Movie {
 
     public Movie_NewRelease(String title) {

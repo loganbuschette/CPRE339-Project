@@ -16,10 +16,6 @@ import com.example.matt.a339project.Objects.Merchandise.CD.CD;
 import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
 
-/**
- * Created by Logan on 11/21/2016.
- */
-
 public class CDActivity extends Activity {
 
     Firebase ref;

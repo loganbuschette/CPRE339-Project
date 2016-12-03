@@ -65,9 +65,10 @@
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Children Movie"
+                android:text="Child Movies"
                 android:id="@+id/childrenMovieText"
                 android:textAlignment="center"
+                android:background="@drawable/custom_bg_1"
                 android:layout_column="0"
                 android:layout_weight="1" />
 
@@ -75,9 +76,10 @@
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Regular Movie"
+                android:text="Normal Movies"
                 android:id="@+id/regularMovieText"
                 android:textAlignment="center"
+                android:background="@drawable/custom_bg_1"
                 android:layout_column="1"
                 android:layout_weight="1" />
 
@@ -85,9 +87,10 @@
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="New Release"
+                android:text="New Movies"
                 android:id="@+id/newReleaseText"
                 android:textAlignment="center"
+                android:background="@drawable/custom_bg_1"
                 android:layout_column="2"
                 android:layout_weight="1" />
         </TableRow>

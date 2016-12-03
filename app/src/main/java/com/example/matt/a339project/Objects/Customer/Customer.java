@@ -7,11 +7,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Matt on 11/16/2016.
- */
-
-@SuppressWarnings("serial")
 public class Customer implements Serializable {
     private String name;
     private String age;

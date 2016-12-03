@@ -1,14 +1,10 @@
-package com.example.matt.a339project;
+package com.example.matt.a339project.Objects.Transaction;
 
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.Objects.Transaction.Transaction;
 import com.example.matt.a339project.Objects.Statement.Statement;
 
 import java.util.ArrayList;
-
-/**
- * Created by Matt on 11/16/2016.
- */
 
 public class Transactions {
 
@@ -53,7 +49,6 @@ public class Transactions {
 
     public Statement getStatement() {
         return null;
-        //new Statement(this);
     }
 
 }

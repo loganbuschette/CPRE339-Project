@@ -37,7 +37,8 @@
             android:id="@+id/textPersonName"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:hint="Name" />
+            android:hint="Name"
+            android:fontFamily="casual" />
 
         <EditText
             android:layout_width="match_parent"
@@ -49,7 +50,8 @@
             android:id="@+id/textPersonEmail"
             android:hint="Email"
             android:textSize="30sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:fontFamily="casual" />
 
         <EditText
             android:layout_width="match_parent"
@@ -59,7 +61,8 @@
             android:inputType="number"
             android:hint="Age"
             android:textSize="30sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:fontFamily="casual" />
 
         <Button
             android:text="Submit"
@@ -75,7 +78,8 @@
             android:lineSpacingExtra="8sp"
             android:textAlignment="center"
             android:background="@android:color/holo_green_light"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="casual" />
     </LinearLayout>
 
 </RelativeLayout>

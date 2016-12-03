@@ -5,13 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
-import com.example.matt.a339project.Controller;
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.R;
 import com.firebase.client.Firebase;
@@ -20,8 +17,6 @@ public class FirstActivity extends AppCompatActivity {
 
     Firebase ref;
     Customer customer = new Customer();
-
-    int one = 0;
 
 
     @Override
@@ -89,10 +84,6 @@ public class FirstActivity extends AppCompatActivity {
                     acceptDialogBox.show();
                 }
                 else{
-                    Controller.factory().name = name.toString();
-                    Controller.factory().email = email.toString();
-                    Controller.factory().age = age.toString();
-
                     customer.setName(name.toString());
                     customer.setEmail(email.toString());
                     customer.setAge(age.toString());

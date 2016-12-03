@@ -5,25 +5,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_book">Book</string>
     <string name="title_activity_movie">Movie</string>
-
-
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_age">Age</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="title_activity_register">Register</string>
-    <string name="prompt_name">Name</string>
-    <string name="action_register">Register</string>
-    <string name="error_email_already_taken">This email address is already associated with an account</string>
     <string name="title_activity_cd">CD</string>
 
     <string-array name="bookArray">
@@ -35,6 +16,14 @@
         <item>Catch 22</item>
         <item>The Catcher in the Rye</item>
         <item>Beloved</item>
+        <item>Scrappy Little Nobody</item>
+        <item>The Big Show</item>
+        <item>The Whistler</item>
+        <item>Conversations with my Mother</item>
+        <item>Killing the Rising Sun</item>
+        <item>Small Great Things</item>
+        <item>Settle for More</item>
+        <item>The Undoing Project</item>
     </string-array>
 
     <string-array name="cdArray">
@@ -45,6 +34,14 @@
         <item>Born in the USA by Bruce Springsteen</item>
         <item>Ropin The Wind by Garth Brooks</item>
         <item>Jagged Little Pill by Alanis Morissette</item>
+        <item>Hardwired by Metallica</item>
+        <item>24K Magic by Bruno Mars</item>
+        <item>The Weight of These Wings by Miranda Lambert</item>
+        <item>Trolls Soundtrack</item>
+        <item>Views by Drake</item>
+        <item>Moana Soundtrack</item>
+        <item>Joanne by Lady Gaga</item>
+        <item>Dangerous Woman by Ariana Grande</item>
     </string-array>
 
     <string-array name="childrenMovieArray">
@@ -55,6 +52,15 @@
         <item>The Princess Bride</item>
         <item>The Iron Giant</item>
         <item>Willy Wonka</item>
+        <item>Trolls</item>
+        <item>Smurfs</item>
+        <item>Cinderella</item>
+        <item>Snow White</item>
+        <item>Toy Story</item>
+        <item>Batman and Robin</item>
+        <item>The Jungle Book</item>
+        <item>Ratchet and Clank</item>
+        <item>Alice in Wonderland</item>
     </string-array>
 
     <string-array name="newReleaseMovieArray">
@@ -65,6 +71,14 @@
         <item>The Girl on the Train</item>
         <item>Startrek</item>
         <item>Hacksaw Ridge</item>
+        <item>Bad Santa 2</item>
+        <item>The BFG</item>
+        <item>Doctor Strange</item>
+        <item>The Accountant</item>
+        <item>Sully</item>
+        <item>Snowden</item>
+        <item>Deadpool</item>
+        <item>Batman</item>
     </string-array>
 
     <string-array name="regularMovieArray">
@@ -76,6 +90,14 @@
         <item>Vertigo</item>
         <item>Star Wars</item>
         <item>Psycho</item>
+        <item>Gods of Egypt</item>
+        <item>The Witch</item>
+        <item>Hail, Caesar!</item>
+        <item>Eddie the Eagle</item>
+        <item>10 Cloverfield Lane</item>
+        <item>The Brothers Grimsby</item>
+        <item>Captain America</item>
+        <item>Neighbors</item>
     </string-array>
 
 </resources>

@@ -9,10 +9,6 @@ import android.widget.ImageButton;
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.R;
 
-/**
- * Created by Logan on 11/16/2016.
- */
-
 public class MovieActivity extends Activity {
 
     Customer customer;

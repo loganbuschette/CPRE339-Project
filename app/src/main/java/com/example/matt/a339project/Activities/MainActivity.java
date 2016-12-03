@@ -5,22 +5,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.matt.a339project.Controller;
 import com.example.matt.a339project.Objects.Customer.Customer;
-import com.example.matt.a339project.Objects.Merchandise.Book.Book;
-import com.example.matt.a339project.Objects.Merchandise.CD.CD;
-import com.example.matt.a339project.Objects.Merchandise.Movie.Movie;
 import com.example.matt.a339project.R;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,13 +25,6 @@ public class MainActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
         setContentView(R.layout.activity_main);
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-
-//        if (pref.getString("user", null) == null) {
-//            Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
-//            startActivityForResult(myIntent, 0);
-//            finish();
-//        }
 
         Intent i = getIntent();
         customer = (Customer)i.getSerializableExtra("customer");
@@ -89,28 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        MenuItem item = menu.findItem(R.id.homeBtn);
-//        MenuItem item2 = menu.findItem(R.id.backBtn);
-//        item.setVisible(false);
-//        item2.setVisible(false);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-//            case R.id.action_settings:
-//                return true;
-//            case R.id.logoutBtn:
-//                ref.unauth();
-//                startActivity(new Intent(this, LoginActivity.class));
-//                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 

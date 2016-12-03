@@ -13,10 +13,6 @@ import com.example.matt.a339project.R;
 import java.text.NumberFormat;
 import java.util.List;
 
-/**
- * Created by Logan on 12/2/2016.
- */
-
 public class PurchaseListAdapter extends ArrayAdapter<Merchandise> {
 
     public PurchaseListAdapter(Context context, int resource, List<Merchandise> merch) {

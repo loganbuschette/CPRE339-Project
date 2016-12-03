@@ -4,9 +4,6 @@ import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 
 import java.io.Serializable;
 
-/**
- * @author Logan
- */
 public class CD implements Merchandise, Serializable {
 
     private String CDTitle;

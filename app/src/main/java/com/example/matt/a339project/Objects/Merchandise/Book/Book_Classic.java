@@ -1,11 +1,5 @@
 package com.example.matt.a339project.Objects.Merchandise.Book;
 
-import com.example.matt.a339project.Objects.Merchandise.Book.Book;
-
-/**
- * Created by Matt on 11/16/2016.
- */
-
 public class Book_Classic extends Book {
 
     public Book_Classic(String title) {

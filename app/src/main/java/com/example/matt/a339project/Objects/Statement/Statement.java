@@ -1,11 +1,6 @@
 package com.example.matt.a339project.Objects.Statement;
 
-import com.example.matt.a339project.Objects.Transaction.Transaction;
-import com.example.matt.a339project.Transactions;
-
-/**
- * Created by Matt on 11/16/2016.
- */
+import com.example.matt.a339project.Objects.Transaction.Transactions;
 
 public class Statement {
 

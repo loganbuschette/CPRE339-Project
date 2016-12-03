@@ -17,6 +17,7 @@ import com.example.matt.a339project.Adapters.RentalListAdapter;
 import com.example.matt.a339project.Objects.Customer.Customer;
 import com.example.matt.a339project.Objects.Merchandise.Merchandise;
 import com.example.matt.a339project.R;
+import com.firebase.client.Firebase;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -24,6 +25,7 @@ import java.util.List;
 public class StatementActivity extends AppCompatActivity {
 
     Customer customer;
+    Firebase ref;
     private ListView rentalsLV;
     private ListView purchaseLV;
 
@@ -31,6 +33,9 @@ public class StatementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statement);
+
+        Firebase.setAndroidContext(this);
+        ref = new Firebase("https://blinding-torch-3840.firebaseio.com");
 
         Intent i = getIntent();
         customer = (Customer)i.getSerializableExtra("customer");
@@ -71,9 +76,6 @@ public class StatementActivity extends AppCompatActivity {
         TextView FRP = (TextView) findViewById(R.id.fqrAmount);
         FRP.setText(""+totalFRP);
 
-        //TODO push list to DB on checkout
-
-
         Button clearButton = (Button) findViewById(R.id.clearBtn);
         clearButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -85,7 +87,6 @@ public class StatementActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                //TODO clear customer list
                                 Intent myIntent = new Intent(StatementActivity.this, FirstActivity.class);
                                 startActivityForResult(myIntent, 0);
                                 dialog.dismiss();
@@ -102,34 +103,47 @@ public class StatementActivity extends AppCompatActivity {
             }
         });
 
+        final Firebase transactionRef = ref.child("Transactions");
+        final Firebase newTransactionRef = transactionRef.push();
+        final int tempFRP = totalFRP;
 
         Button checkoutButton = (Button) findViewById(R.id.checkoutBtn);
         checkoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 AlertDialog acceptDialogBox = new AlertDialog.Builder(StatementActivity.this)
                         //set message, title, and icon
-                        .setTitle("Frequent Renter Points")
-                        .setMessage("Would you like to use your frequent renter points?")
+                        .setTitle("Check out")
+                        .setMessage("Would you like to check out?")
                         .setIcon(android.R.drawable.ic_dialog_info)
-                        .setPositiveButton("Yes and Pay", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                //TODO push list to firebase, subtract renter points and clear list
+                                newTransactionRef.child("Customer Name").setValue(customer.getName());
+                                newTransactionRef.child("Email").setValue(customer.getEmail());
+                                newTransactionRef.child("Frequent Renter Points").setValue(tempFRP);
+
+                                Firebase rentalsRef = newTransactionRef.child("Rentals");
+                                Firebase newRentalsRef = rentalsRef.push();
+                                Firebase purchaseRef = newTransactionRef.child("Purchases");
+                                Firebase newPurchaseRef = purchaseRef.push();
+                                List<Merchandise> tempRentals = customer.getRentals();
+                                List<Merchandise> tempPurchases = customer.getPurchases();
+
+                                for(int i = 0; i < tempRentals.size(); i++)
+                                {
+                                    newRentalsRef.child("Rental "+i).setValue(tempRentals.get(i));
+                                }
+
+                                for(int i = 0; i < tempPurchases.size(); i++)
+                                {
+                                    newPurchaseRef.child("Purchase "+i).setValue(tempPurchases.get(i));
+                                }
                                 Intent myIntent = new Intent(StatementActivity.this, FirstActivity.class);
                                 startActivityForResult(myIntent, 0);
                                 dialog.dismiss();
                             }
                         })
-                        .setNegativeButton("No and Pay", new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                //TODO clear customer list
-                                Intent myIntent = new Intent(StatementActivity.this, FirstActivity.class);
-                                startActivityForResult(myIntent, 0);
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 dialog.dismiss();
