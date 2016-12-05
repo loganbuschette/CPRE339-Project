@@ -1,0 +1,34 @@
+Defensive Programming
+-We used defensive programming by creating the merchandise interface, and having all sub classes extend
+the merchandise class.  We thought this was an effective idea because it leaves room for the product
+to grow in the future, namely allow the movie store to sell more types of merchandise with ease.
+-Our second type of defensive programming was to create our app with a low enough SDK in mind to
+function on some older android devices, rather than just the newest ones.
+
+Code Smells
+-Our first corrected code smell was using the 'Pull up Method' technique.  We were able to do
+this because we have books, CD's and 3 types of movies.  We considered them all types of 'merchandise'
+and we were able to define the methods in the merchandise superclass, and then differentiate them
+in each specific type of merchandise class.
+-We corrected a code smell in our statement activity.  We originally tried to create the page with
+6 different lists (Book Purchases, Book Rentals, CD Purchases, CD Rentals, Movie Purchases, Movie
+Rentals), but realized this was a lot of duplicate code, and wasted prescious GUI space.  If a user
+didn't rent one type of merchandise, it's unpopulated list would stil take up space on the GUI.  We
+decided to use 2 lists insead (Purchases, and Rentals) this way it would save space, and make the
+GUI much cleaner.
+
+Inter-Process Communication
+-We used an online server called Firebase.  Firebase is unique, and useful for mobile applications
+because it simulates real-time, and allows multiple users to access the application simultaneously.
+By using firebase, many different threads are able to communicate with the server at once.
+
+Design Patterns
+-Abstract Factory - This was the main design pattern for the structure of our program.  We created
+abstract classes as a hierarchy to encapsulate the different possible forms of the same method among
+classes.
+-Object Pool - Rather than creating new customer objects and new lists, we recycle the customer
+object by clearing everything once the customer checks out, or closes the application.  It would
+be too expensive to create tens or hundreds of new customer objects for every user that uses the application.
+-MVC - MVC was a big design pattern we used in our project.  Model for our project is all of our
+objects, the controller is the activities responsible for handling the objects, and the view is
+contained in our xml files responsible for formatting of the pages and what the user views.
